@@ -84,13 +84,21 @@ public class PlayerClient {
     }
 
     @Step("Update user with playerId: {playerId}, editor: {editor}, and request: {request}")
-    public static Response updateUser(Long playerId, Editors editor, CreatePlayerRequest request, int expectedStatusCode) {
+    public static Response updateUser(Long playerId, Editors editor, Object request, int expectedStatusCode) {
         logger.info("Updating user with playerId: {}, editor: {}, and request: {}", playerId, editor, request);
         RequestSpecification newRequest = getRequestSpecification();
+
+        if (request instanceof CreatePlayerRequest) {
+            newRequest.body((CreatePlayerRequest) request);
+        } else if (request instanceof String) {
+            newRequest.body((String) request);
+        } else {
+            throw new IllegalArgumentException("Unsupported request type: " + request.getClass().getName());
+        }
+
         return executeRequest(
                 () -> newRequest
                         .contentType(ContentType.JSON)
-                        .body(request)
                         .when()
                         .patch("/player/update/" + editor.getEditor() + "/" + playerId),
                 expectedStatusCode

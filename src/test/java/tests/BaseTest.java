@@ -10,8 +10,6 @@ import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnviro
 
 public class BaseTest {
 
-    protected String testName;
-
     @BeforeClass
     public void baseSetup() {
         RestAssured.baseURI = TestConfig.baseUrl;
@@ -23,7 +21,6 @@ public class BaseTest {
                 ImmutableMap.<String, String>builder()
                         .put("Suite", TestConfig.suiteName)
                         .put("BASE_URL", TestConfig.baseUrl)
-                        .put("THREAD_COUNT", TestConfig.threadCount)
                         .put("Layer", "API")
                         .put("App", "SPRIBE_TEST_TASK")
                         .build(), System.getProperty("user.dir")

@@ -12,9 +12,6 @@ public class TestConfig {
 
     public static String baseUrl = getProperty("base_url", "http://3.68.165.45");
     public static String suiteName = getProperty("suite_name", "regressionTests");
-    public static String threadCount = getProperty("thread_count", "3");
-    public static String parallelType = getProperty("parallel_type", "3");
-    public static String group = getProperty("test_group", "regression");
 
 
     private static Properties getProperties() {
@@ -28,7 +25,7 @@ public class TestConfig {
                     log.info("No application.properties file was found. Using default properties");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("Failed to load application.properties", e);
             }
         }
         return properties;

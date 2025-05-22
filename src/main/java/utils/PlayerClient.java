@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.function.Supplier;
 
-import static core.ThreadSafeRestAssured.getRequestSpecification;
+import static core.BaseRestAssured.getRequestSpecification;
 
 public class PlayerClient {
 

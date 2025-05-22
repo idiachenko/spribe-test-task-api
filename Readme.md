@@ -1,7 +1,7 @@
 # README
 
 ## Project Overview
-This project is a **Java-based API testing framework** built using **Spring Boot**, **Kotlin**, and **Gradle**. It leverages **TestNG** for test execution and **RestAssured** for API interactions. The framework integrates **Allure** for reporting and follows modular design principles to ensure scalability and maintainability.
+This project is a **Java-based API testing framework** based on **Java 11** and  **Gradle**. It leverages **TestNG** for test execution and **RestAssured** for API interactions. The framework integrates **Allure** for reporting and follows modular design principles to ensure scalability and maintainability.
 
 ## Features
 - **API Testing**: Supports CRUD operations and validations for RESTful APIs.

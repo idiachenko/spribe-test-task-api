@@ -49,9 +49,9 @@ build/ (Generated build artifacts)
 3. Configure the environment:
     - Update `TestConfig` with the appropriate `baseUrl`, `suiteName`, and `threadCount`.
 
-4. Run tests:
+4. Run tests: (to change forks apply -DmaxParallelForks=N, default is 3)
    ```bash
-   ./gradlew apiTests
+   ./gradlew apiTests 
    ```
 
 5. Generate Allure reports:
